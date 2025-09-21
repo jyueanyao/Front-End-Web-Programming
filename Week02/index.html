@@ -1,89 +1,234 @@
+<!--
+        AI Disclosure: Portions of this HTML file may have been generated or assisted by AI tools (e.g., GitHub Copilot / ChatGPT).
+        All code has been reviewed and adapted by a human contributor.
+      
+        ==========================================================================
+        Table of Contents
+        ==========================================================================
+      
+        1. Head (meta, title, stylesheet)
+        2. Header
+        3. Hero / Intro
+        4. Education
+        5. Work Experience
+        6. Projects
+        7. Certificates
+        8. Skills
+        9. Footer
+        10. Scripts
+        ==========================================================================
+      -->
+
+
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-    <style>
-        body   {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }   
-        main {
-            padding: 20px;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 18px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jyue-An (Julia) Yao — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <header>
-        <h1>Jyue-An, Yao</h1>
-        <h3>Integrated Design Business and Technology @ USC</h3>
-    </header>
+  <!-- ===== Header (no nav list, just your brand) ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Jyue-An (Julia) Yao</h1>
+    </div>
+  </header>
 
+  <main id="top">
+    <!-- ===== Hero / Intro (simple, with LinkedIn button as main CTA) ===== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h2 class="hero-title">Hey, I’m Julia ✨ 🙋🏻‍♀️ 👩🏻‍💻</h2>
+          <p class="lead">
+            MS in Integrated Design, Business & Technology @ USC IYA.
+            I blend <strong>UX Research</strong>, <strong>UI Design</strong>, and
+            <strong>data-informed storytelling</strong> to turn complex needs into clear products.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-linkedin" 
+   href="https://www.linkedin.com/in/juliayao333/" 
+   target="_blank" rel="noopener noreferrer">
+  LinkedIn
+</a>
 
-    <main>
-        <img src="Images/Yao_JyueAn_Photo.jpeg" style="height:200px; width:auto" alt="Headshot of Julia"
-            title="Julia Yao">
-            <br>
-            <a href="https://drive.google.com/drive/u/3/folders/11bUXdLOWfnTg2JQHCoTlxsWpV2lOSyqd" target="_blank">
-                <img src="Images/Resume.png" alt="Resume" style="width:30px; height:auto;">
             </a>
-            <br>
-            <a href="https://www.linkedin.com/in/juliayao333/" target="_blank">
-                <img src="Images/LinkedIn.png" alt="LinkedIn" style="width:30px; height:auto;">
+            <a class="btn ghost" href="JyueAnYao_Resume_Sept.pdf" target="_blank" rel="noopener">
+              Résumé
             </a>
-        <p>PROJECTS</p>
-        <ol>
-            <li>Design Thinking Project - Recycle Go</li>
-            <li>Undergraduate Senior Final Project - Tech Care</li>
-        </ol>
-        <p>WORK EXPERIENCE</p>
-        <ol>
-            <li>American Heart Association</li>
-            <li>FCF Co, Ltd.</li>
+          </div>
+        </div>
 
-        </ol>
-        <p>MY THREE HOBBIES</p>
-        <ol>
-            <li>Outdoor: Jogging, Hiking</li>
-            <li>Indoor: Listening to music, Study</li>
+        <!-- Portrait with soft mask (optional) -->
+        <div class="hero-art">
+          <!-- Put your headshot at /images/headshot.jpg -->
+          <div class="mask">
+            <img src="Images/profile_hourse.jpeg" alt="Portrait of Julia" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-        </ol>
+    <!-- ===== Education ===== -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <ul class="timeline">
+          <li>
+            <div class="row">
+              <h3>University of Southern California — Iovine & Young Academy</h3>
+              <p class="muted">MS in Integrated Design, Business & Technology (IDBT) • 2025 – Present</p>
+              <p>Focus: UX Design Research, Design Strategy, Product Innovation.</p>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <h3>National University of Kaohsiung</h3>
+              <p class="muted">B.S. in Information Management • 2018 – 2022</p>
+              <p>User Experience Design, General Psychology</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <script src="" async defer></script>
+    <!-- ===== Work Experience ===== -->
+    <section id="work" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
 
-    </main>
-    <footer>
-        Copyright @ 2025 Jyue-An,Yao
-    </footer>
+        <article class="card">
+          <header class="card-head">
+            <h3>IT Support Intern — FCF Co., Ltd. (Taiwan)</h3>
+            <span class="tag">Apr 2024 – Sept 2024</span>
+          </header>
+          <ul>
+            <li>Resolved scanning and printing connectivity issues for 140 office machines, resulting in a 25% reduction in downtime.</li>
+            <li>Reconfigured PCs (software reinstalls, network segments, SAP/IBM Notes/AV, IP changes).</li>
+            <li>Managed allow/deny lists; ensured secure network access.</li>
+            <li>Excel pivot analysis improved comparison speed by ~10%.</li>
+          </ul>
+        </article>
 
+        <article class="card">
+          <header class="card-head">
+            <h3>Lab Research Assistant — Undergraduate Research Project Subsidy</h3>
+            <span class="tag">Sept 2020 – June 2021</span>
+          </header>
+          <ul>
+            <li>Prepared 10+ grant proposals for National Science & Technology Council.</li>
+            <li>Compiled and edited 100+ pages of technical documentation for reviewers.</li>
+            <li>Supported data collection and research planning to improve funding readiness.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <article class="card">
+          <header class="card-head">
+            <h3>TechCare — Long-Term Care Platform</h3>
+            <span class="tag">Lead UX Research • 2020 – 2021</span>
+          </header>
+          <ul>
+            <li>20+ interviews, personas, and journey maps to uncover workflow pain points.</li>
+            <li>iBeacon + AI facial recognition concept to support care decisions.</li>
+            <li>Python location scripts enabling real-time resident tracking; ~50% faster lookups.</li>
+          </ul>
+          <div class="card-actions">
+            <a class="btn small ghost" href="#" target="_blank" rel="noopener">Case Study</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="card-head">
+            <h3>Recycle Go — Circular Packaging Return</h3>
+            <span class="tag">UX Researcher • 2022</span>
+          </header>
+          <ul>
+            <li>Interviewed 10+ students; identified 75% drop-off from low convenience/weak incentives.</li>
+            <li>Designed ARM kiosk + QR flow aligned to campus habits.</li>
+            <li>Proposed model estimating return-rate lift from ~25% → 60%+; reduced waste on pilots.</li>
+          </ul>
+          <div class="card-actions">
+            <a class="btn small ghost" href="#" target="_blank" rel="noopener">Demo Flow</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Certificates ===== -->
+    <section id="certificates" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Certificates</h2>
+        <ul class="bullets">
+          <li>Google UX Design Certificate — Coursera</li>
+      
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="grid-3">
+          <div class="panel">
+            <h3>UX Research & Design</h3>
+            <ul class="bullets">
+              <li>Interviews, Personas, Journey Mapping</li>
+              <li>Usability Testing, A/B testing</li>
+              <li>Design Systems, Accessibility</li>
+              <li>Figma / FigJam, Miro</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Coding & Analytics</h3>
+            <ul class="bullets">
+              <li>HTML, CSS, JavaScript</li>
+              <li>Python, Java, C, MySQL</li>
+              <li>Excel, Tableau</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Languages</h3>
+            <ul class="bullets">
+              <li>English</li>
+              <li>Chinese (Mandarin)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> 
+      
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Jyue-An (Julia) Yao — Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      Jyue-An Yao</small>
+      <small><a href="mailto:jyueanwork@gmail.com">jyueanwork@gmail.com</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
