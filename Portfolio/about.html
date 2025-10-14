@@ -1,0 +1,78 @@
+ 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About — Jyue-An (Julia) Yao</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container nav">
+      <div class="brand"><span class="brand__dot" aria-hidden="true"></span> Jyue-An (Julia) Yao</div>
+      <nav class="nav__links" aria-label="Main navigation">
+        <!-- Navigation bar -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a> 
+        <a href="projects.html">Projects</a>
+       <!-- <a href="#contact">Contact</a>  -->
+      </nav>
+      <div class="nav__cta">
+        <a href="projects.html">Projects</a>
+      </div>
+    </div>
+  </header>
+ 
+ <section class="section container" id="about">
+    <h2 class="section__title">About</h2>
+    <p class="section__subtitle">MS in IDBT @ USC • Background in Computer Science and Information Management</p>
+ <section class="section container" id="about">
+  <div class="about-grid" style="display:flex; flex-wrap:wrap; gap:2rem; align-items:flex-start;">
+    
+    <!-- 左側圖片 -->
+    <div class="about__image" style="flex:1 1 40%; min-width:280px;">
+      <img src="img/griffithlawn.JPG" alt="Photo of Jyue-An at Hollywood sign" style="width:100%; border-radius:18px; box-shadow:0 8px 26px rgba(0,0,0,.1);">
+    </div>
+    
+    <!-- 右側文字 -->
+    <div class="about__text" style="flex:1 1 55%; min-width:300px;">
+      <h2 class="section__title">Fun facts about me</h2>
+      
+      <p>👩🏻‍💻 I’m a UX and product designer based in Los Angeles, pursuing a Master’s in Integrated Design, Business, and Technology at USC. Originally from Taiwan, I’m passionate about designing meaningful, user-centered digital experiences that bridge technology and human needs.</p>
+      
+      <p>🎨 My creative roots started with fine art and visual storytelling. Over time, I discovered how design can move beyond aesthetics to solve real-world challenges—whether reimagining healthcare workflows with the American Heart Association or designing inclusive education tools for rural students.</p>
+      
+      <p>🧠 With a foundation in Human–Computer Interaction, Visual Communication, and Computer Science, I thrive in cross-disciplinary teams that blend data, design, and technology. My projects range from building responsive web portfolios to prototyping modular footwear and exploring AI-assisted healthcare solutions.</p>
+      
+      <p>📸 Outside of design, I express creativity through photography and video editing, capturing spontaneous city moments and subtle light. These small creative habits continuously sharpen my eye for composition, rhythm, and narrative.</p>
+            
+      <p>🕺 I also love tap dancing, jogging, and mindfulness practice—each helping me find balance, energy, and clarity to design with empathy and joy.</p>
+    </div>
+  </div>
+</section>
+
+    <div class="skills">
+      <span class="pill">UX Research</span>
+      <span class="pill">Interaction Design</span>
+      <span class="pill">Prototyping</span>
+      <span class="pill">Information Architecture</span>
+      <span class="pill">Usability Testing</span>
+      <span class="pill">HTML/CSS</span>
+      <span class="pill">Figma</span>
+      <span class="pill">Illustrator</span>
+      <span class="pill">Miro</span>
+    </div>
+  </section>
+
+   <footer class="footer">
+    <div class="container footer__row" id="contact">
+      <p>© <span id="year"></span> Jyue-An Yao</p>
+      <!-- <p><a href="projects.html">Projects</a> · <a href="#about">About</a></p> -->
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
