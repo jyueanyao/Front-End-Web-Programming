@@ -26,8 +26,20 @@ made manual edits to ensure accuracy and completeness.
       --error:#b42318; /* accessible red */
       --okay:#047857; /* accessible green */
     }
-    .main{padding:var(--s6) 0}
-    .form-wrap{display:grid;grid-template-columns: 1.1fr .9fr;gap:var(--s5)}
+    .main {
+  padding: var(--s6) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--s5);
+  max-width: 1000px;
+  width: 100%;
+}
+
     .form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r2);padding:var(--s5);box-shadow:0 8px 26px rgba(0,0,0,.06)}
     .form-card h1{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:var(--s3)}
 
