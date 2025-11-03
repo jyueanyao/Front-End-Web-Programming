@@ -256,16 +256,42 @@ function initAnimations() {
         $(this).removeClass('card-hover');
     });
     
-    // Loading animation
-    if ($('.loading').length === 0) {
-        $('body').prepend('<div class="loading">Loading...</div>');
+    // Typewriter effect for hero title
+    initTypewriterEffect();
+}
+
+// Typewriter effect
+function initTypewriterEffect() {
+    const typewriterElements = $('.typewriter, .hero__title');
+    
+    typewriterElements.each(function() {
+        const $element = $(this);
+        const originalText = $element.text();
+        const text = originalText || "Hey, I am Julia";
         
-        $(window).on('load', function() {
-            $('.loading').fadeOut(300, function() {
-                $(this).remove();
-            });
-        });
-    }
+        // Clear the element and add cursor
+        $element.empty().addClass('typewriter-active');
+        $element.append('<span class="typewriter-text"></span><span class="typewriter-cursor">|</span>');
+        
+        const $textSpan = $element.find('.typewriter-text');
+        let index = 0;
+        
+        function typeCharacter() {
+            if (index < text.length) {
+                $textSpan.text(text.substring(0, index + 1));
+                index++;
+                setTimeout(typeCharacter, 100); // 100ms delay between characters
+            } else {
+                // Hide cursor after typing is complete
+                setTimeout(function() {
+                    $element.find('.typewriter-cursor').fadeOut(500);
+                }, 1000);
+            }
+        }
+        
+        // Start typing after a small delay
+        setTimeout(typeCharacter, 500);
+    });
 }
 
 // Custom easing function
