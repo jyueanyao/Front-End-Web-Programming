@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--
+AI DISCLOSURE: This HTML document was created with assistance from GitHub Copilot AI.
+AI was used to help structure the semantic HTML, organize content sections, and enhance
+the biographical information based on provided resume details. All personal information,
+career history, and achievements are factually accurate and belong to Jake Spurlock.
+The professor (Jake Spurlock) provided the content direction, personal details, and
+made manual edits to ensure accuracy and completeness.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Jyue‑An (Julia) Yao</title>
+  <meta name="description" content="Contact form for Julia Yao — UX / Product Designer." />
+
+  <!-- Re‑use your shared site styles -->
+  <link rel="stylesheet" href="styles/style.css" />
+
+  <!-- Form‑only styles (scoped)  -->
+  <style>
+    :root{
+      --focus: var(--gold);
+      --error:#b42318; /* accessible red */
+      --okay:#047857; /* accessible green */
+    }
+    .main {
+  padding: var(--s6) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--s5);
+  max-width: 1000px;
+  width: 100%;
+}
+
+    .form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r2);padding:var(--s5);box-shadow:0 8px 26px rgba(0,0,0,.06)}
+    .form-card h1{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:var(--s3)}
+
+    form{display:grid;gap:var(--s4)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+
+    label{font-weight:600}
+    .hint{color:var(--ink-3);font-size:.9rem}
+    .required::after{content:" *";color:var(--cardinal)}
+
+    input[type="text"], input[type="email"], input[type="tel"], input[type="file"],
+    select, textarea{
+      width:100%;padding:.75rem .9rem;border:1px solid var(--border);border-radius:12px;line-height:1.4;background:#fff
+    }
+    textarea{min-height:140px;resize:vertical}
+    input:focus, select:focus, textarea:focus{outline:3px solid var(--focus);outline-offset:3px}
+
+    fieldset{border:1px solid var(--border);border-radius:12px;padding:var(--s3)}
+    legend{padding:0 var(--s2);font-weight:700}
+
+    .actions{display:flex;gap:var(--s3);align-items:center}
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+
+    /* Validation visuals */
+    .is-invalid{border-color:var(--error)}
+    .errors{color:var(--error);font-size:.95rem}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    .sidebar{display:flex;flex-direction:column;gap:var(--s4)}
+    .tip{background:#fff;border:1px solid var(--border);border-radius:var(--r1);padding:var(--s4)}
+    .tip h3{font-size:1.05rem;margin-bottom:.25rem}
+    .success{display:none;margin-top:var(--s3);background:#ecfdf5;border:1px solid #a7f3d0;color:var(--okay);padding:var(--s3);border-radius:12px}
+
+    @media (max-width: 900px){
+      .form-wrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Site Header (re‑use Week03 nav styles) -->
+  <header class="header">
+    <div class="container nav">
+      <div class="brand"><span class="brand__dot" aria-hidden="true"></span> Jyue‑An (Julia) Yao</div>
+       <nav class="nav__links" aria-label="Main navigation">
+        <!-- Navigation bar -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a> 
+        <a href="bio.html">Bio</a> 
+        <a href="projects.html">Projects</a>
+       <a href="contact.html">Contact</a> 
+      </nav>
+      <div class="nav__cta">
+        <a href="projects.html">Projects</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main container" id="main">
+    <div class="form-wrap">
+
+      <!-- Contact Form Card -->
+      <section class="form-card" aria-labelledby="contactTitle">
+        <h1 id="contactTitle">Contact Me</h1>
+        <p class="section__subtitle"></p>
+
+        <!-- Accessible live region for form status -->
+        <div id="formStatus" class="sr-only" role="status" aria-live="polite"></div>
+
+        <form id="contactForm" novalidate>
+          <!-- Honeypot for basic bot filtering -->
+          <div aria-hidden="true" style="position:absolute;left:-5000px;">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="name" class="required">Full name</label>
+              <input id="name" name="name" type="text" inputmode="text" autocomplete="name" required aria-describedby="nameHint" />
+              <p id="nameHint" class="hint">Your preferred name is perfect.</p>
+            </div>
+            <div>
+              <label for="email" class="required">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(123) 456-7890" pattern="^\+?[0-9().\-\s]{7,}$" aria-describedby="phoneHint" />
+              <p id="phoneHint" class="hint">Digits, spaces, dashes, parentheses allowed.</p>
+            </div>
+            <div>
+              <label for="reason" class="required">Reason</label>
+              <select id="reason" name="reason" required>
+                <option value="" disabled selected>Select one…</option>
+                <option>Project inquiry</option>
+                <option>Collaboration</option>
+                <option>Speaking / event</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="required">Message</label>
+            <textarea id="message" name="message" required minlength="10" maxlength="2000" aria-describedby="msgHint"></textarea>
+            <p id="msgHint" class="hint">At least 10 characters so I can help best.</p>
+          </div>
+
+          <fieldset>
+            <legend>Preferred contact</legend>
+            <div class="row" style="grid-template-columns:auto auto;align-items:center">
+              <label><input type="radio" name="contact_pref" value="email" checked /> Email</label>
+              <label><input type="radio" name="contact_pref" value="phone" /> Phone</label>
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="attachment">Attachment (optional)</label>
+            <input id="attachment" name="attachment" type="file" accept=".pdf,.png,.jpg,.jpeg" />
+            <p class="hint">Share a brief, PDF or image — max ~5MB recommended.</p>
+          </div>
+
+          <label class="" style="display:flex;gap:.6rem;align-items:center">
+            <input id="newsletter" name="newsletter" type="checkbox" />
+            <span>Get occasional updates (few per year)</span>
+          </label>
+
+          <div id="errorList" class="errors" aria-live="polite"></div>
+          <div class="success" id="success">
+            ✅ Thanks! Your message was validated on the client side and would be sent to my inbox on a live backend.
+          </div>
+
+          <div class="actions">
+            <button class="btn btn--primary" type="submit" id="submitBtn">Send message</button>
+            <button class="btn btn--ghost" type="reset">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <p>© <span id="year"></span> Jyue‑An Yao</p>
+      <p><a href="projects.html">Projects</a> · <a href="about.html">About</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Client‑side validation with helpful messages
+    const form = document.getElementById('contactForm');
+    const errorList = document.getElementById('errorList');
+    const status = document.getElementById('formStatus');
+    const success = document.getElementById('success');
+
+    // Utility: mark invalid/valid
+    function toggleInvalid(el){
+      if (!el.checkValidity()) el.classList.add('is-invalid');
+      else el.classList.remove('is-invalid');
+    }
+
+    // Validate while typing / changing
+    form.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('input', () => toggleInvalid(el));
+      el.addEventListener('blur', () => toggleInvalid(el));
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Basic honeypot check
+      const botField = form.querySelector('#company');
+      if (botField && botField.value.trim() !== '') {
+        status.textContent = 'Bot detected — submission blocked.';
+        errorList.textContent = 'Submission blocked.';
+        return;
+      }
+
+      // Build an error summary
+      const fields = ['name','email','message','reason'];
+      const problems = [];
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        toggleInvalid(el);
+        if (!el.checkValidity()) {
+          const label = form.querySelector(`label[for="${id}"]`)?.textContent?.replace(' *','') || id;
+          problems.push(`${label} is required or invalid.`);
+        }
+      });
+
+      const phone = document.getElementById('phone');
+      if (phone.value && !phone.checkValidity()) {
+        problems.push('Phone format looks invalid.');
+        phone.classList.add('is-invalid');
+      }
+
+      if (problems.length){
+        errorList.innerHTML = '<ul>' + problems.map(p=>`<li>${p}</li>`).join('') + '</ul>';
+        status.textContent = 'Please fix the form errors.';
+        errorList.focus?.();
+        return;
+      }
+
+      // If valid: show success, reset form (demo only)
+      errorList.textContent = '';
+      success.style.display = 'block';
+      status.textContent = 'Form validated and submitted (demo).';
+      form.reset();
+
+      // Move focus to success for a11y
+      success.setAttribute('tabindex','-1');
+      success.focus();
+      setTimeout(()=>success.removeAttribute('tabindex'), 100);
+    });
+  </script>
+</body>
+</html>

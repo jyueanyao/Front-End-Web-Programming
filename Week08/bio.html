@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Julia Yao — Interactive Bio</title>
+  <meta name="description" content="Interactive bio page with CSS3 transitions, gradients, shadows, and embedded fonts." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/style.css" />
+
+  <style>
+    :root{
+      --bg: linear-gradient(135deg,#fff7f7 0%, #fff 35%, #f7fbff 100%);
+      --ink:#1f2937; --ink-2:#4b5563; --ink-3:#6b7280;
+      --cardinal:#990000; --gold:#ffcc00;
+      --brand:linear-gradient(90deg, #990000, #ffcc00);
+      --r1:14px; --r2:22px; --shadow-lg: 0 18px 40px rgba(17, 24, 39, .12);
+      --s1:.5rem; --s2:.75rem; --s3:1rem; --s4:1.5rem; --s5:2rem; --s6:3rem;
+      --card-w: min(980px, 92vw);
+      --speed: .35s;
+    }
+
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;color:var(--ink);line-height:1.6}
+
+    .site{max-width:1100px;margin:0 auto;padding:0 var(--s3)}
+    header{display:flex;justify-content:space-between;align-items:center;padding:var(--s4) 0}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .brand__accent{background:var(--brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+    nav a{padding:.4rem .8rem;border-radius:999px;text-decoration:none;color:var(--ink-2);border:1px solid transparent;transition:all var(--speed) ease}
+    nav a:hover{color:var(--ink);border-color:#e5e7eb;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    nav a:active{transform:translateY(1px)}
+
+    .hero{display:grid;place-items:center;padding:var(--s6) 0 var(--s5)}
+    .card{width:var(--card-w);background:#fff;border:1px solid #eef2f7;border-radius:var(--r2);box-shadow:var(--shadow-lg);overflow:hidden}
+    .card__top{display:grid;grid-template-columns: 220px 1fr;gap:var(--s5);padding:var(--s5);align-items:center}
+    .avatar{aspect-ratio:1/1;border-radius:20px;overflow:hidden;border:1px solid #eee;box-shadow:0 10px 24px rgba(0,0,0,.06);transform:translateY(0);transition:transform var(--speed) ease, box-shadow var(--speed) ease}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .avatar:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.12)}
+
+    .title{font-family:"Playfair Display", serif;font-weight:700;font-size:clamp(1.6rem, 3.2vw, 2.4rem);margin:0}
+    .subtitle{color:var(--ink-2);margin:.25rem 0 0}
+
+    .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+    .tag{font-size:.85rem;padding:.35rem .6rem;border-radius:999px;background:linear-gradient(90deg,#fff,#f8fafc);border:1px solid #e5e7eb}
+
+    .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:var(--s4)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.05rem;border-radius:12px;border:1px solid #e5e7eb;background:#fff;color:var(--ink);text-decoration:none;transition:transform var(--speed) ease, box-shadow var(--speed) ease, background var(--speed) ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
+    .btn:active{transform:translateY(1px)}
+    .btn--primary{background:var(--brand);color:#fff;border-color:transparent;position:relative;overflow:hidden}
+    .btn--primary::after{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 45%);transform:translateX(-30%) translateY(-30%) scale(.6);transition:transform .35s ease, opacity .35s ease;opacity:0}
+    .btn--primary:hover::after{transform:translateX(0) translateY(0) scale(1);opacity:1}
+
+    a:focus-visible, button:focus-visible, .btn:focus-visible {
+      outline: 3px solid #2563eb; outline-offset: 3px; border-radius: 12px;
+    }
+
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--s5);padding:0 var(--s5) var(--s5)}
+    .panel{background:#fff;border:1px solid #eef2f7;border-radius:18px;padding:var(--s4);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+    .panel h3{margin-top:0}
+
+    .list{display:grid;gap:.6rem;margin:0;padding-left:1rem}
+    .kv{display:flex;gap:.8rem;align-items:center}
+    .kv b{min-width:110px;color:var(--ink-2)}
+
+    .divider{height:4px;background:var(--brand);opacity:.25;margin:0 var(--s5)}
+
+    footer{padding:var(--s5) 0;color:var(--ink-3);text-align:center}
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important;animation:none !important}
+    }
+
+    @media (max-width: 900px){
+      .card__top{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="brand">Jyue‑An (Julia) <span class="brand__accent">Yao</span></div>
+     <nav class="nav__links" aria-label="Main navigation">
+        <!-- Navigation bar -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bio.html">Bio</a>
+        <a href="projects.html">Projects</a>
+       <a href="contact.html">Contact</a> 
+      
+      </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="bio">
+      <article class="card" aria-labelledby="bioTitle">
+        <div class="card__top">
+          <figure class="avatar">
+            <img src="img/griffith.JPG" alt="Portrait of Julia Yao at USC" />
+          </figure>
+          <div>
+            <h1 class="title" id="bioTitle">Designer who turns complex needs into clear, human solutions.</h1>
+            <p class="subtitle">MS, Integrated Design, Business & Technology @ USC Iovine & Young Academy. Focused on UX research, product strategy, and accessible design systems.</p>
+            <div class="tags">
+              <span class="tag">UX Research</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Design Strategy</span>
+              <span class="tag">Data Storytelling</span>
+            </div>
+            <div class="cta">
+              <a class="btn btn--primary" href="projects.html">View Projects</a>
+              <a class="btn" href="contact.html">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="divider" role="presentation"></div>
+        <div class="grid">
+          <section class="panel" aria-labelledby="aboutMe">
+            <h3 id="aboutMe">About Me</h3>
+            <p>Hi! I’m Julia. I blend <strong>UX research</strong> with <strong>visual systems</strong> to create products that are intuitive and inclusive. I’ve consulted with the American Heart Association and USC labs to translate insights into prototypes and measurable outcomes.</p>
+            <ul class="list">
+              <li>Currently exploring: AI‑assisted health UX, service blueprints, and motion for meaning.</li>
+              <li>Toolbox: Figma, Adobe XD/AI/PS, HTML/CSS, a dash of JS and data viz.</li>
+              <li>Fun facts: Tap‑dance inspired footwear concepts • photographer • latte art rookie ☕</li>
+            </ul>
+          </section>
+
+          <aside class="panel" aria-labelledby="quickFacts">
+            <h3 id="quickFacts">Contact Info</h3>
+            <div class="kv"><b>Location</b><span>Los Angeles, CA</span></div>
+            <div class="kv"><b>Email</b><span><a href="mailto:jyueanwork@gmail.com">jyueanwork@gmail.com</a></span></div>
+            <div class="kv"><b>LinkedIn</b><span><a href="https://linkedin.com/in/juliayao333">https://linkedin.com/in/juliayao333</a></span></div>
+          </aside>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Jyue‑An (Julia) Yao · Built for Week 6 — CSS3 Transitions & Visuals
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

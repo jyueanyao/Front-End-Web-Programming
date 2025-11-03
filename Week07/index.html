@@ -1,0 +1,69 @@
+<!--
+AI DISCLOSURE: 
+This HTML document was created with assistance from GitHub Copilot AI.
+AI was used to help structure the semantic HTML, organize content sections, and enhance
+the biographical information based on provided resume details. All personal information,
+career history, and achievements are factually accurate and belong to Jake Spurlock.
+The professor (Jake Spurlock) provided the content direction, personal details, and
+made manual edits to ensure accuracy and completeness.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jyue-An (Julia) Yao — Portfolio</title>
+  <meta name="description" content="Responsive homepage with Flexbox layout linking to Projects.">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand"><span class="brand__dot" aria-hidden="true"></span> Jyue-An (Julia) Yao</div>
+      <nav class="nav__links" aria-label="Main navigation">
+        <!-- Navigation bar -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a> 
+         <a href="bio.html">Bio</a> 
+        <a href="projects.html">Projects</a>
+       <a href="contact.html">Contact</a> 
+      </nav>
+      <!-- <div class="nav__cta">
+        <a href="projects.html">Projects</a>
+      </div> -->
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="hero__text">
+      <h1>Hey, I’m Julia ✨ 🙋🏻‍♀️ 👩🏻‍💻</h1>
+      <p>I am a UX designer with a background in information management and UIUX Design. With passion for UX design research ,and Product Design.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" style="background:#0077b5; border-color:#0077b5;"
+           href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener noreferrer">
+          Connect me on LinkedIn
+        </a>
+        <a class="btn btn--primary" style="background:#990000; border-color:#990000;"
+           href="https://drive.google.com/file/d/1CPNjwHelKd_GsMktpyuR6ZTiWg35KNYm/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+          My Resume
+        </a>
+      </div>
+    </div>
+    <div class="hero__image" aria-hidden="true">
+      <img src="img/foutain.jpeg" alt="Abstract portfolio cover artwork">
+    </div>
+    
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container footer__row" id="contact">
+      <p>© <span id="year"></span> Jyue-An Yao</p>
+      <!-- <p><a href="projects.html">Projects</a> · <a href="#about">About</a></p> -->
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

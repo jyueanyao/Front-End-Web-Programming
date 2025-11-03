@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projects — Jyue-An (Julia) Yao</title>
+  <meta name="description" content="Projects page with at least two projects, text and visuals.">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand"><span class="brand__dot" aria-hidden="true"></span> Jyue-An (Julia) Yao</div>
+       <nav class="nav__links" aria-label="Main navigation">
+        <!-- Navigation bar -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a> 
+        <a href="bio.html">Bio</a> 
+        <a href="projects.html">Projects</a>
+       <a href="contact.html">Contact</a> 
+      </nav>
+      <div class="nav__cta"><a href="index.html">← Back Home</a></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1 class="section__title">Project Experiences</h1>
+      <p class="section__subtitle">Here are some of my selected works</p>
+
+      <div class="cards">
+        <!-- TechCare -->
+        <article class="card" id="project-techcare">
+          <div class="card__media"><img src="img/TechCare.png" alt="TechCare cover"></div>
+          <div class="card__body">
+            <h2>Undergraduate Senior Final Project — TechCare</h2>
+            <p class="card__meta">UX-based solution to improve efficiency in long-term care facilities / dementia.</p>
+            <div class="tags">
+              <span class="tag">AdobeXD</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">UX Research</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Recycle Go -->
+        <article class="card" id="project-recycle">
+          <div class="card__media"><img src="img/Recycle.png" alt="Recycle Go cover"></div>
+          <div class="card__body">
+            <h2>Design Thinking Project — Recycle Go</h2>
+            <p class="card__meta">Using Psychology and Design Thinking to Address Packaging Waste.</p>
+            <div class="tags">
+              <span class="tag">Psychology</span>
+              <span class="tag">Design Thinking</span>
+              <span class="tag">UIUX Design</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case Study A
+        <article class="card" id="project-a">
+          <div class="card__media"><img src="img/project-a.svg" alt="Case Study A cover"></div>
+          <div class="card__body">
+            <h2>Case Study A — Responsive Web UI</h2>
+            <p class="card__meta">Role: UX / UI · Timeline: 4 weeks</p>
+            <p>Redesigned a landing experience to improve scannability and reduce time-to-content. Used Flexbox for resilient layouts.</p>
+            <ul class="tags">
+              <li class="tag">Flexbox</li>
+              <li class="tag">RWD</li>
+              <li class="tag">Accessibility</li>
+            </ul>
+          </div>
+        </article> -->
+
+        <!-- Case Study B
+        <article class="card" id="project-b">
+          <div class="card__media"><img src="img/project-b.svg" alt="Case Study B cover"></div>
+          <div class="card__body">
+            <h2>Case Study B — Design System</h2>
+            <p class="card__meta">Role: Designer · Timeline: 6 weeks</p>
+            <p>Established design tokens and reusable components; documented usage to keep styles consistent and reduce regressions.</p>
+            <ul class="tags">
+              <li class="tag">Design Tokens</li>
+              <li class="tag">Components</li>
+              <li class="tag">Docs</li>
+            </ul>
+          </div>
+        </article> -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <p>© <span id="year"></span> Jyue-An Yao</p>
+      <!-- <p><a href="index.html">Home</a> · <a href="projects.html">Projects</a></p> -->
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
