@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Recycle Go — Project</title>
+  <meta name="description" content="Recycle Go — campus ARM x PackAge+ incentive system to increase reusable e-commerce packaging return rates.">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <span class="brand__dot" aria-hidden="true"></span> 
+        Jyue-An (Julia) Yao
+      </div>
+      
+      <!-- Mobile hamburger menu button -->
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- Navigation links -->
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a> 
+        <a href="bio.html">Bio</a> 
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a> 
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Project Navigation -->
+    <div class="project-nav">
+      <a href="techcare.html" class="nav-btn nav-btn--prev">← Previous</a>
+      <a href="thrive.html" class="nav-btn nav-btn--next">Next →</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-full">
+      <div class="hero-right">
+        <h2 style="font-size: 3.5rem; font-weight: 900; color: #0052a3; margin: 0;">RECYCLE GO</h2>
+        <p style="font-size: 1.5rem; color: #0052a3; margin: 0.5rem 0 2rem 0;">
+          Campus ARM × PackAge+ — Increasing Return Rates for Reusable E-commerce Packaging
+        </p>
+        <div style="margin: 2rem 0;">
+          <!-- Cover image: place RecycleGo.png under /img/ -->
+          <img src="img/Recycle/recyclego.jpeg" alt="Recycle Go project cover" style="max-width: 100%; height: auto; border-radius: 12px;">
+        </div>
+      </div>
+    </section>
+
+    <section class="case">
+      <!-- Meta -->
+      <div class="meta grid">
+        <div><strong>Role</strong><br>UX Researcher</div>
+        <div><strong>Team</strong><br>UX Researcher · UI Designer</div>
+        <div><strong>Timeline</strong><br>Mar. 2022 – Sept. 2022</div>
+        <div><strong>Awards</strong><br>Taiwan Sustainable Energy Innovation Competition</div>
+      </div>
+
+      <!-- Overview -->
+      <section>
+        <h2>Project Overview</h2>
+        <p>
+          <strong>Recycle Go</strong> proposes integrating <strong>ARM smart recycling machines</strong> with <strong>PackAge+</strong> reusable packaging systems across university campuses.
+          By offering small digital incentives and making returns convenient, the project aims to raise return rates and reduce overall circulation costs.
+        </p>
+      </section>
+
+      <!-- Problem Statement -->
+      <section>
+        <h2>Problem Statement</h2>
+        <ul>
+          <li>Taiwan's high online-shopping volume generates massive packaging waste, while reusable-packaging return rates remain around 25%.</li>
+          <li>Insufficient incentives and limited, city-concentrated return locations reduce participation and create regional gaps.</li>
+        </ul>
+      </section>
+
+      <!-- Opportunity -->
+      <section>
+        <h2>Opportunity Statement</h2>
+        <p>
+          <strong style="color:#0052a3;">How might we</strong> use campus-based ARM and digital rewards to improve convenience and motivation for returning reusable packaging,
+          expanding participation and stabilizing return volumes?
+        </p>
+      </section>
+
+      <!-- Solution -->
+      <section>
+        <h2>Solution</h2>
+        <p>
+          Focusing on university students, the system places <strong>ARM</strong> return machines on campus and connects them to the <strong>PackAge+</strong> network.
+          Students scan and return packaging at nearby stations to receive small monetary rewards or credits. Packages are then cleaned and reused via reverse logistics,
+          creating a closed loop that increases return rates and lowers costs.
+        </p>
+        <ul class="cols">
+          <li><strong>Target Users</strong>: University students (18–22)</li>
+          <li><strong>Key Partners</strong>: EPA Taiwan, PackAge+, Universities</li>
+          <li><strong>Key Value</strong>: Convenience + incentives → higher return rates & lower costs</li>
+        </ul>
+      </section>
+
+      <!-- System Flow (optional image) -->
+      <section class="section section--image">
+        <h2>System Flow</h2>
+        <!-- If you have a flow image, place it under /img/recycle-flow.png -->
+        <img src="img/recycle-flow.png" alt="ARM + PackAge+ integration flow for Recycle Go" class="section__image" style="width:100%; border-radius:12px;">
+        <p class="caption">ARM × PackAge+ Integration — Campus return → Reverse logistics → Cleaning &amp; reuse.</p>
+      </section>
+
+
+      <!-- Impact -->
+      <section class="impact-grid">
+        <div>
+          <h3>Impact — For Users</h3>
+          <ul>
+            <li>Clear, convenient return flow on campus</li>
+            <li>Higher participation via instant digital rewards</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Impact — For Partners</h3>
+          <ul>
+            <li>Higher return rates → lower circulation cost</li>
+            <li>Broader regional reach and stronger sustainability awareness</li>
+          </ul>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <p>© <span id="year"></span> Jyue-An Yao</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year update
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile navigation toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.querySelector('.nav__toggle');
+      const navLinks = document.querySelector('.nav__links');
+      
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+          const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+          
+          navToggle.setAttribute('aria-expanded', !isExpanded);
+          navLinks.classList.toggle('active');
+          navToggle.classList.toggle('active');
+        });
+        
+        navLinks.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') {
+            navLinks.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.classList.remove('active');
+          }
+        });
+        
+        document.addEventListener('click', function(e) {
+          if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Local styles to match easytap.html -->
+  <style>
+    .case {max-width: 960px; margin: 0 auto; padding: 24px;}
+    .meta.grid {display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 12px; margin: 16px 0 24px;}
+    h2 {margin-top: 28px; font-size: 1.4rem; color: #C41E3A;}
+    h3 {margin-top: 12px; font-size: 1.1rem;}
+    ul {padding-left: 18px;}
+    .cols {columns: 2; column-gap: 24px;}
+    .impact-grid {display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 16px;}
+    .section__image {width: 100%; border-radius: 8px; margin-top: 1rem;}
+    .caption {font-size: .9rem; text-align: center; color: #555; margin-top: .5rem;}
+    .project-nav {
+      display: flex;
+      justify-content: space-between;
+      margin: var(--s4) 0;
+      padding: var(--s3) 0;
+    }
+    .nav-btn {
+      text-decoration: none;
+      color: var(--ink);
+      padding: var(--s2) var(--s3);
+      border: 1px solid var(--border);
+      border-radius: var(--r1);
+      transition: all .2s ease;
+    }
+    .nav-btn:hover {
+      background: var(--border);
+    }
+    @media (max-width: 640px){ .cols {columns: 1;} }
+  </style>
+  
+  <!-- jQuery and Interactive Features -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/interactive.js"></script>
+</body>
+</html>

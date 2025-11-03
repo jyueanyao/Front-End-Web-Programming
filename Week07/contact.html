@@ -33,15 +33,26 @@ made manual edits to ensure accuracy and completeness.
 }
 
 .form-wrap {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: var(--s5);
-  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
   width: 100%;
 }
 
-    .form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r2);padding:var(--s5);box-shadow:0 8px 26px rgba(0,0,0,.06)}
-    .form-card h1{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:var(--s3)}
+    .form-card{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--r2);
+      padding:var(--s5);
+      box-shadow:0 8px 26px rgba(0,0,0,.06);
+      width: 100%;
+      text-align: left;
+    }
+    .form-card h1{
+      font-size:clamp(1.5rem,3vw,2rem);
+      margin-bottom:var(--s3);
+      text-align: center;
+    }
 
     form{display:grid;gap:var(--s4)}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
@@ -74,26 +85,47 @@ made manual edits to ensure accuracy and completeness.
     .success{display:none;margin-top:var(--s3);background:#ecfdf5;border:1px solid #a7f3d0;color:var(--okay);padding:var(--s3);border-radius:12px}
 
     @media (max-width: 900px){
-      .form-wrap{grid-template-columns:1fr}
+      .form-wrap{
+        grid-template-columns:1fr;
+        max-width: 100%;
+        padding: 0 var(--s3);
+      }
+      
+      .form-card {
+        padding: var(--s4);
+      }
+      
+      .row {
+        grid-template-columns: 1fr;
+        gap: var(--s3);
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Site Header (re‑use Week03 nav styles) -->
+  <!-- Site Header -->
   <header class="header">
     <div class="container nav">
-      <div class="brand"><span class="brand__dot" aria-hidden="true"></span> Jyue‑An (Julia) Yao</div>
-       <nav class="nav__links" aria-label="Main navigation">
-        <!-- Navigation bar -->
+      <div class="brand">
+        <span class="brand__dot" aria-hidden="true"></span> 
+        Jyue‑An (Julia) Yao
+      </div>
+      
+      <!-- Mobile hamburger menu button -->
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- Navigation links -->
+      <nav class="nav__links" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a> 
         <a href="bio.html">Bio</a> 
         <a href="projects.html">Projects</a>
-       <a href="contact.html">Contact</a> 
+        <a href="contact.html" aria-current="page">Contact</a> 
       </nav>
-      <div class="nav__cta">
-        <a href="projects.html">Projects</a>
-      </div>
     </div>
   </header>
 
@@ -182,7 +214,6 @@ made manual edits to ensure accuracy and completeness.
         </form>
       </section>
 
-      </aside>
     </div>
   </main>
 
@@ -262,6 +293,40 @@ made manual edits to ensure accuracy and completeness.
       success.focus();
       setTimeout(()=>success.removeAttribute('tabindex'), 100);
     });
+
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav__toggle');
+    const navLinks = document.querySelector('.nav__links');
+    
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', function() {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        
+        navToggle.setAttribute('aria-expanded', !isExpanded);
+        navLinks.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+      
+      navLinks.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          navLinks.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.classList.remove('active');
+        }
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.classList.remove('active');
+        }
+      });
+    }
   </script>
+  
+  <!-- jQuery and Interactive Features -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/interactive.js"></script>
 </body>
 </html>
