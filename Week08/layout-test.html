@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Layout Testing — Jyue-An (Julia) Yao</title>
+  <meta name="description" content="Testing layout and design changes before applying to main pages">
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    /* Additional testing styles - easier to modify here */
+    .test-section {
+      background: var(--gold);
+      padding: var(--s6);
+      border-radius: var(--r2);
+      margin: var(--s5) 0;
+      border: 2px dashed #999;
+    }
+    
+    .test-note {
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: var(--s3);
+      margin: var(--s3) 0;
+      border-radius: var(--r1);
+      font-size: var(--text-sm);
+      color: var(--ink-2);
+    }
+    
+    /* Easy color testing */
+    .bg-yellow { background-color: #ffcc00; }
+    .bg-light-yellow { background-color: #fff9c4; }
+    .bg-gold { background-color: var(--gold); }
+    .bg-cardinal { background-color: var(--cardinal); }
+    .bg-white { background-color: white; }
+    .bg-gray { background-color: #f5f5f5; }
+    
+    /* Easy spacing testing */
+    .spacing-sm { padding: var(--s3); margin: var(--s2) 0; }
+    .spacing-md { padding: var(--s4); margin: var(--s3) 0; }
+    .spacing-lg { padding: var(--s6); margin: var(--s5) 0; }
+    
+    /* Grid testing */
+    .test-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); }
+    .test-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s4); }
+    .test-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s4); }
+    
+    @media (max-width: 48em) {
+      .test-grid-2, .test-grid-3, .test-grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <span class="brand__dot" aria-hidden="true"></span> 
+        Layout Testing
+      </div>
+      
+      <!-- Mobile hamburger menu button -->
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- Navigation links -->
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="layout-test.html" aria-current="page">Layout Test</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a> 
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="test-note">
+      <strong>📝 Layout Testing Page</strong><br>
+      這個頁面讓您可以輕鬆測試不同的排版、顏色和樣式。修改好後再應用到主頁面。<br>
+      嘗試修改下面的 CSS 類別或直接在元素上添加 style 屬性。
+    </div>
+
+    <!-- Hero Section Testing -->
+    <section class="hero">
+      <div class="hero__text">
+        <h1>測試排版頁面 ✨</h1>
+        <p>在這裡測試您的設計想法，確認效果後再套用到主頁面</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects-test">測試 Projects</a>
+          <a class="btn btn--ghost" href="#color-test">顏色測試</a>
+        </div>
+      </div>
+      
+      <div class="hero__image">
+        <img src="img/foutain.jpeg" alt="Testing layout" loading="eager">
+      </div>
+    </section>
+
+    <!-- Color Testing Section -->
+    <section class="section" id="color-test">
+      <h2 class="section__title">顏色測試區域</h2>
+      <p class="section__subtitle">測試不同背景顏色效果</p>
+      
+      <div class="test-grid-3">
+        <div class="bg-yellow spacing-md">
+          <h3>黃色背景 (#ffcc00)</h3>
+          <p>這是純黃色背景效果</p>
+        </div>
+        <div class="bg-light-yellow spacing-md">
+          <h3>淺黃色背景</h3>
+          <p>這是淡黃色背景效果</p>
+        </div>
+        <div class="bg-gold spacing-md">
+          <h3>金色背景 (CSS變數)</h3>
+          <p>使用 var(--gold) 的效果</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Testing Section -->
+    <section class="test-section" id="projects-test">
+      <h2 class="section__title">Featured Projects 測試</h2>
+      <p class="section__subtitle">測試項目卡片在黃色背景下的效果</p>
+
+      <div class="cards">
+        <!-- Sample Project 1 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="img/TechCare.png" alt="Test project" loading="lazy">
+          </div>
+          <div class="card__body">
+            <h3>測試項目一</h3>
+            <p class="card__meta">測試項目描述，看看在黃色背景下的視覺效果</p>
+            <div class="tags">
+              <span class="tag">測試標籤</span>
+              <span class="tag">設計</span>
+              <span class="tag">UX</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample Project 2 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="img/Recycle.png" alt="Test project" loading="lazy">
+          </div>
+          <div class="card__body">
+            <h3>測試項目二</h3>
+            <p class="card__meta">另一個測試項目，確認卡片樣式</p>
+            <div class="tags">
+              <span class="tag">測試</span>
+              <span class="tag">響應式</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample Project 3 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="img/Moving Solder.png" alt="Test project" loading="lazy">
+          </div>
+          <div class="card__body">
+            <h3>測試項目三</h3>
+            <p class="card__meta">第三個測試項目</p>
+            <div class="tags">
+              <span class="tag">互動設計</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sample Project 4 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="img/reddot.png" alt="Test project" loading="lazy">
+          </div>
+          <div class="card__body">
+            <h3>測試項目四</h3>
+            <p class="card__meta">第四個測試項目</p>
+            <div class="tags">
+              <span class="tag">獲獎作品</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Layout Grid Testing -->
+    <section class="section">
+      <h2 class="section__title">網格布局測試</h2>
+      <p class="section__subtitle">測試不同的網格排列</p>
+      
+      <h3>兩欄網格</h3>
+      <div class="test-grid-2">
+        <div class="bg-gray spacing-sm">項目 1</div>
+        <div class="bg-gray spacing-sm">項目 2</div>
+      </div>
+      
+      <h3>三欄網格</h3>
+      <div class="test-grid-3">
+        <div class="bg-gray spacing-sm">項目 1</div>
+        <div class="bg-gray spacing-sm">項目 2</div>
+        <div class="bg-gray spacing-sm">項目 3</div>
+      </div>
+      
+      <h3>四欄網格</h3>
+      <div class="test-grid-4">
+        <div class="bg-gray spacing-sm">項目 1</div>
+        <div class="bg-gray spacing-sm">項目 2</div>
+        <div class="bg-gray spacing-sm">項目 3</div>
+        <div class="bg-gray spacing-sm">項目 4</div>
+      </div>
+    </section>
+
+    <!-- Instructions -->
+    <section class="section">
+      <div class="test-note">
+        <h3>🛠️ 如何使用這個測試頁面：</h3>
+        <ol>
+          <li><strong>修改樣式</strong>：直接在這個檔案的 &lt;style&gt; 區塊中修改 CSS</li>
+          <li><strong>測試顏色</strong>：改變 .test-section 的 background 顏色</li>
+          <li><strong>調整間距</strong>：修改 padding 和 margin 值</li>
+          <li><strong>測試響應式</strong>：調整瀏覽器寬度看效果</li>
+          <li><strong>確認效果</strong>：滿意後將樣式複製到主頁面</li>
+        </ol>
+        
+        <h4>常用的顏色代碼：</h4>
+        <ul>
+          <li><code>background: #ffcc00;</code> - 純黃色</li>
+          <li><code>background: #fff9c4;</code> - 淺黃色</li>
+          <li><code>background: var(--gold);</code> - 網站金色</li>
+          <li><code>background: linear-gradient(135deg, #ffcc00, #fff9c4);</code> - 黃色漸層</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <p>© <span id="year"></span> Layout Testing Page</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year update
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile navigation toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.querySelector('.nav__toggle');
+      const navLinks = document.querySelector('.nav__links');
+      
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+          const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+          
+          navToggle.setAttribute('aria-expanded', !isExpanded);
+          navLinks.classList.toggle('active');
+          navToggle.classList.toggle('active');
+        });
+        
+        navLinks.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') {
+            navLinks.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.classList.remove('active');
+          }
+        });
+        
+        document.addEventListener('click', function(e) {
+          if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
