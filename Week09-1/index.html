@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jyue-An (Julia) Yao — Portfolio</title>
+  <meta name="description" content="Responsive homepage with Flexbox layout linking to Projects.">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/animation.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #1f2937;
+      --ink-2: #4b5563;
+      --ink-3: #6b7280;
+      --cardinal: #8B0000;
+      --gold: #FFD700;
+      --brand: linear-gradient(90deg, #8B0000, #FFD700);
+      --r1:14px; --r2:22px; --shadow-lg: 0 18px 40px rgba(17, 24, 39, .12);
+      --s1:.5rem; --s2:.75rem; --s3:1rem; --s4:1.5rem; --s5:2rem; --s6:3rem;
+      --card-w: min(980px, 92vw);
+      --speed: .35s;
+    }
+
+      html, body {
+        height:100%
+      }
+
+      body {
+        margin:0; background:var(--bg); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--ink); line-height:1.6
+      }
+
+      .site {
+        max-width:1100px; margin:0 auto; padding:0 var(--s3)
+      }
+
+      header {
+        display:flex; justify-content:space-between; align-items:center; padding:var(--s3) 0
+      }
+
+      .brand {
+        font-weight:800; letter-spacing:.2px
+      }
+
+      .brand__accent {
+        background:var(--brand); -webkit-background-clip:text; background-clip:text; color:transparent
+      }
+
+      nav a {
+        padding:.3rem .6rem;
+        border-radius:999px;
+        text-decoration:none;
+        color:var(--ink-2);
+        border:1px solid transparent;
+        transition:all var(--speed) ease;
+        font-size:.9rem;
+      }
+
+      nav a:hover {
+        color:var(--ink); border-color:#e5e7eb; box-shadow:0 6px 18px rgba(0, 0, 0, .06)
+      }
+
+      nav a:active {
+        transform:translateY(1px)
+      }
+
+      .card {
+        width:var(--card-w); background:#fff; border:1px solid #eef2f7; border-radius:var(--r2); box-shadow:var(--shadow-lg); overflow:hidden
+      }
+
+      .card__top {
+        display:grid; grid-template-columns: 220px 1fr; gap:var(--s5); padding:var(--s5); align-items:center
+      }
+
+      .avatar {
+        aspect-ratio:1/1; border-radius:20px; overflow:hidden; border:1px solid #eee; box-shadow:0 10px 24px rgba(0, 0, 0, .06); transform:translateY(0); transition:all var(--speed) cubic-bezier(0.4, 0, 0.2, 1)
+      }
+
+      .avatar img {
+        width:100%; height:100%; object-fit:cover; transition:transform var(--speed) ease
+      }
+
+      .avatar:hover {
+        transform:translateY(-8px); box-shadow:0 20px 40px rgba(0, 0, 0, .15)
+      }
+
+      .avatar:hover img {
+        transform:scale(1.03)
+      }
+
+      .title {
+        font-family:"Playfair Display", serif; font-weight:700; font-size:clamp(1.6rem, 3.2vw, 2.4rem); margin:0
+      }
+
+      .subtitle {
+        color:var(--ink-2); margin:.25rem 0 0
+      }
+
+      .tags {
+        display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.75rem
+      }
+
+      .tag {
+        font-size:.85rem; padding:.35rem .6rem; border-radius:999px; background:linear-gradient(90deg, #fff, #f8fafc); border:1px solid #e5e7eb
+      }
+
+      .cta {
+        display:flex; flex-wrap:wrap; gap:.6rem; margin-top:var(--s4)
+      }
+
+      .btn {
+        display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1.05rem; border-radius:12px; border:1px solid #e5e7eb; background:#fff; color:var(--ink); text-decoration:none; transition:transform var(--speed) ease, box-shadow var(--speed) ease, background var(--speed) ease
+      }
+
+      .btn:hover {
+        transform:translateY(-2px); box-shadow:0 10px 24px rgba(0, 0, 0, .12)
+      }
+
+      .btn:active {
+        transform:translateY(1px)
+      }
+
+      .btn--primary {
+        background:var(--brand); color:#fff; border-color:transparent; position:relative; overflow:hidden
+      }
+
+      .btn--primary::after {
+        content:""; position:absolute; inset:-40%; background:radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .25), transparent 45%); transform:translateX(-30%) translateY(-30%) scale(.6); transition:transform .35s ease, opacity .35s ease; opacity:0
+      }
+
+      .btn--primary:hover::after {
+        transform:translateX(0) translateY(0) scale(1); opacity:1
+      }
+
+      a:focus-visible, button:focus-visible, .btn:focus-visible {
+        outline: 3px solid #2563eb; outline-offset: 3px; border-radius: 12px;
+      }
+
+      .grid {
+        display:grid; grid-template-columns:1.2fr .8fr; gap:var(--s5); padding:0 var(--s5) var(--s5)
+      }
+
+      .panel {
+        background:#fff; border:1px solid #eef2f7; border-radius:18px; padding:var(--s4); box-shadow:0 12px 30px rgba(0, 0, 0, .06)
+      }
+
+      .panel h3 {
+        margin-top:0
+      }
+
+      .list {
+        display:grid; gap:.6rem; margin:0; padding-left:1rem
+      }
+
+      .kv {
+        display:flex; gap:.8rem; align-items:center
+      }
+
+      .kv b {
+        min-width:110px; color:var(--ink-2)
+      }
+
+      .divider {
+        height:4px; background:var(--brand); opacity:.25; margin:0 var(--s5)
+      }
+
+      footer {
+        padding:var(--s5) 0; color:var(--ink-3); text-align:center
+      }
+
+      /* Skills pills */
+      .skills {
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 0.5rem; 
+        margin-top: 2rem;
+        justify-content: center;
+      }
+      
+      .pill {
+        background: white;
+        border: 1px solid var(--border, #e5e7eb);
+        padding: 0.5rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        color: var(--ink-2);
+        transition: all 0.2s ease;
+      }
+      
+      .pill:hover {
+        border-color: var(--cardinal);
+        color: var(--cardinal);
+        transform: translateY(-1px);
+      }
+
+      /* Section spacing */
+      .section {
+        padding: var(--s6) 0;
+      }
+      
+      .section__title {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        margin-bottom: var(--s3);
+        text-align: center;
+        color: var(--cardinal);
+      }
+      
+      .section__subtitle {
+        color: var(--ink-2);
+        margin-bottom: var(--s4);
+        text-align: center;
+        font-size: 1.1rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition:none !important; animation:none !important
+        }
+      }
+
+      @media (max-width: 900px) {
+        .card__top {
+          grid-template-columns:1fr
+        }
+
+        .grid {
+          grid-template-columns:1fr
+        }
+        
+        .skills {
+          justify-content: flex-start;
+        }
+      }
+  </style>
+</head>
+
+<body>
+  <header class="header"></header>
+  <script src="components/navbar.js"></script>
+
+  <section class="hero container">
+    <div class="hero__text">
+      <div class="title-container">
+        <h1><span>Hi there, this is Julia✨ 🙋🏻‍♀️ 👩🏻‍💻</span></h1>
+      </div>
+      <p>Product &amp; UX designer with a computer‑science background. I turn complex problems into clear, intuitive
+        products through user research, interaction design, and rapid prototyping—balancing accessibility, data‑informed
+        decisions, and delightful details.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary"
+          style="background:#0077b5; border-color:#0077b5;display:inline-flex;align-items:center;gap:.6rem;"
+          href="https://www.linkedin.com/in/juliayao333/" target="_blank" rel="noopener noreferrer">
+          <!-- LinkedIn icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="display:inline-block;vertical-align:middle;background:#fff;border-radius:4px;padding:2px;">
+            <path
+              d="M4.98 3.5a2.25 2.25 0 11.001 4.5A2.25 2.25 0 014.98 3.5zM3 8.75h4v12H3v-12zM9.75 8.75H14v1.6c.6-1 2.05-1.6 3.35-1.6 3.2 0 3.9 2 3.9 4.6v7.4h-4v-6.55c0-1.56-.03-3.57-2.35-3.57-2.35 0-2.71 1.84-2.71 3.45V21.75h-4v-13z"
+              fill="#0077b5" />
+          </svg>
+          LinkedIn
+        </a>
+        <a class="btn btn--primary"
+          style="background:#8B0000; border-color:#8B0000;display:inline-flex;align-items:center;gap:.6rem;"
+          href="https://drive.google.com/file/d/1vvs_OoR8fpft6eY72Xvasdgzdr9kumvl/view?usp=drive_link" target="_blank"
+          rel="noopener noreferrer">
+          <!-- Resume / document icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="3" width="16" height="18" rx="2" fill="#fff" />
+            <circle cx="12" cy="9" r="2" fill="#8B0000" />
+            <path d="M8 15h8v1H8zM8 17h8v1H8z" fill="#8B0000" />
+          </svg> Resume
+        </a>
+        <a class="btn btn--primary"
+          style="background:#24292f; border-color:#24292f;display:inline-flex;align-items:center;gap:.5rem;"
+          href="https://github.com/jyueanyao" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="display:inline-block;vertical-align:middle">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.525.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 7.844c.85.004 1.705.115 2.504.338 1.909-1.295 2.747-1.025 2.747-1.025.546 1.378.202 2.396.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.339-.012 2.421-.012 2.751 0 .268.18.579.688.481C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"
+              fill="#fff" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero__image" aria-hidden="true">
+      <img src="img/foutain.jpeg" alt="Abstract portfolio cover artwork">
+      <a href="#about" class="scroll-prompt">
+        <p>Scroll Down to learn more about me</p>
+      </a>
+    </div>
+
+  </section>
+
+  <section class="section container" id="projects">
+    <h1 class="section__title">Project Experiences</h1>
+    <p class="section__subtitle">Here are some of my selected works</p>
+
+    <div class="cards">
+
+      <!-- Thrive (Move More) -->
+      <a href="thrive.html" class="card-link" style="text-decoration:none;color:inherit;">
+        <article class="card" id="project-thrive">
+          <div class="card__media"><img src="img/AHA/AHA red.png" alt="Thrive app mockup"></div>
+          <div class="card__body">
+            <h2 style="margin: 0; margin-bottom: 0.25rem;">Thrive</h2>
+            <!-- <p style="font-size: 0.85rem; color: #C41E3A; font-weight: 600; margin: 0 0 0.75rem 0;">Partnership Project with AHA</p> -->
+            <p class="card__meta">UIUX Designer/Researcher (Pro bono consulting) · Aug. 2025 - Present</p>
+            <p>An interactive, AI-powered fitness and wellness app inspired by the American Heart Association's Life's
+              Essential 8</p>
+            <div class="tags">
+              <span class="tag">UIUX Design</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">User Journey Mapping</span>
+              <span class="tag">Healthcare</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- Portfolio Website -->
+      <!-- <a href="portfolio.html" class="card-link" style="text-decoration:none;color:inherit;">
+          <article class="card" id="project-portfolio">
+            <div class="card__media"><img src="img/website.png" alt="Multi-page portfolio website screenshot"></div>
+            <div class="card__body">
+              <h2>Portfolio Website</h2>
+              <p class="card__meta">HTML/CSS/JS · 2025</p>
+              <p>Flexbox-first multi-page site with transitions, accessibility, and jQuery interactions.</p>
+              <div class="tags">
+                <span class="tag">Front-end</span>
+                <span class="tag">Accessibility</span>
+                <span class="tag">jQuery</span>
+              </div>
+            </div>
+          </article>
+        </a> -->
+
+
+      <a href="easytap.html" class="card-link" style="text-decoration:none;color:inherit;">
+        <article class="card" id="project-easytap">
+          <div class="card__media"><img src="img/EasyTap/EasyTap.png" alt="EasyTap app mockup"></div>
+          <div class="card__body">
+            <h2>EasyTap</h2>
+            <p class="card__meta">UIUX Designer/Researcher · Aug. 2025 - Present</p>
+            <p>Detachable tap shoe for dancer.</p>
+            <div class="tags">
+              <span class="tag">Product Design</span>
+              <span class="tag">UIUX Design</span>
+              <span class="tag">User Research</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- TechCare -->
+      <a href="techcare.html" class="card-link" style="text-decoration:none;color:inherit;">
+        <article class="card" id="project-techcare">
+          <div class="card__media"><img src="img/Techcare/combine.PNG" alt="TechCare cover"></div>
+          <div class="card__body">
+            <h2>TechCare (Capstone Project)</h2>
+            <p class="card__meta">UIUX Designer · Researcher · Data Analyst Aug. 2020 – Dec. 2021</p>
+            <p>UX-based solution to improve efficiency in long-term care facilities.</p>
+            <div class="tags">
+              <span class="tag">AdobeXD</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">UX Research</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+      <!-- Recycle Go -->
+      <a href="recycle.html" class="card-link" style="text-decoration:none;color:inherit;">
+        <article class="card" id="project-recycle">
+          <div class="card__media"><img src="img/Recycle.png" alt="Recycle Go cover"></div>
+          <div class="card__body">
+            <h2>Recycle Go</h2>
+            <p class="card__meta">UX Researcher Mar. 2022 - Sept. 2022</p>
+            <p>Using Design Thinking to Address Packaging Waste.</p>
+            <div class="tags">
+              <span class="tag">UX Research</span>
+              <span class="tag">Design Thinking</span>
+              <span class="tag">UIUX Design</span>
+            </div>
+          </div>
+        </article>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section container" id="about">
+    <h2 class="section__title">About Me</h2>
+    <p class="section__subtitle">MS in IDBT @ USC • Background in Information Management</p>
+    <div class="about-grid" style="display:flex; flex-wrap:wrap; gap:2rem; align-items:flex-start;">
+      <!-- Left side image -->
+      <div class="about__image" style="flex:1 1 40%; min-width:280px;">
+        <img src="img/griffithtop.jpeg" alt="Photo of Jyue-An at Griffith Observatory" style="width:100%; border-radius:18px; box-shadow:0 8px 26px rgba(0,0,0,.1);">
+      </div>
+      
+      <!-- Right side text -->
+      <div class="about__text" style="flex:1 1 55%; min-width:300px;">
+        <p>👩🏻‍💻 I'm a product and UX designer currently based in Los Angeles. I was born and raised in Taiwan and moved to California for graduate school, where I'm pursuing a Master's in Integrated Design, Business, and Technology at USC.</p>
+        <br> 
+        <p>🎨 I've loved visual storytelling since I was a kid—I studied fine art in junior high and later discovered the power of design in solving real-world problems. My journey into UX began with designing for education-focused projects and working hands-on with user research and prototypes.</p>
+        <br> 
+        <p>🧠 I've worked on cross-disciplinary teams involving data analytics, IT, and design. My capstone project aimed to improve service experiences in Taiwan's long-term care system, and I've also created digital learning tools for young students in rural areas.</p>
+        <br> 
+        <p>📸 I also love capturing moments through my iPhone 16 Pro—whether it's spontaneous street scenes, quiet light, or short-form video. Photography and video editing are creative habits that fuel my design sense and storytelling intuition.</p>
+        <br>  
+        <p>🕺 Outside of work, I tap dance to clear my mind, go jogging to stay energized, read to explore new ideas, and meditate to reconnect with myself. Balance is part of my creative rhythm.</p>
+      </div>
+    </div>
+
+    <div class="skills">
+      <span class="pill">UI/UX Design</span>
+      <span class="pill">UX Research</span>
+      <span class="pill">Prototyping</span>
+      <span class="pill">Information Architecture</span>
+      <span class="pill">Usability Testing</span>
+      <span class="pill">HTML/CSS</span>
+      <span class="pill">Figma</span>
+    </div>
+  </section>
+
+ 
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <p>© <span id="year"></span> Jyue-An Yao</p>
+      <p><a href="#projects">Projects</a> · <a href="#about">About</a> · <a href="#contact">Contact</a></p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var open = document.body.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    })();
+  </script>
+</body>
+
+</html>

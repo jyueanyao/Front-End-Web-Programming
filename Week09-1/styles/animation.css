@@ -1,0 +1,39 @@
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.title-animated {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.15em solid var(--cardinal);
+  white-space: nowrap;
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
+  color: var(--cardinal);
+  animation: 
+    typing 2.5s steps(45, end) forwards,
+    blink 0.75s step-end 2.5s infinite;
+  text-align: left !important;
+  width: 100%;
+}
+
+.title-container {
+  display: block;
+  width: 100%;
+  max-width: none;
+  text-align: left !important;
+}
+
+.hero__text {
+  text-align: left !important;
+}
