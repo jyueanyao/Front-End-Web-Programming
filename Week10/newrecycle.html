@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>循環網GO｜Case Study – Julia Yao</title>
+<style>
+  :root{
+    --bg:#0b0c10;
+    --card:#111217;
+    --text:#e6e6e6;
+    --muted:#b8b8b8;
+    --accent:#49c5b6;
+    --accent-2:#7fd1ae;
+    --cta:#ffd166;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --radius: 18px;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"Noto Sans TC","PingFang TC","Helvetica Neue",Arial,sans-serif;line-height:1.65}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{opacity:.9;text-decoration:underline}
+  .container{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  .hero{padding:36px 28px;border-radius:var(--radius);background:linear-gradient(135deg,#151823 0%, #0f1a1a 60%, #102018 100%);box-shadow:var(--shadow)}
+  .badge{display:inline-block;background:rgba(73,197,182,.15);color:var(--accent);border:1px solid rgba(73,197,182,.35);padding:5px 10px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  h1{font-size:36px;letter-spacing:.3px;margin:.2em 0 .3em}
+  .sub{color:var(--muted);margin-top:6px}
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  nav.toc a{background:#14161d;border:1px solid #242632;color:#d9d9d9;padding:8px 12px;border-radius:12px;font-size:14px}
+  section{background:var(--card);border:1px solid #1e212b;margin-top:22px;padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
+  h2{font-size:22px;margin:4px 0 12px}
+  p{margin:10px 0}
+  ul{margin:10px 0 0 18px}
+  .grid{display:grid;gap:16px}
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
+  .tag{display:inline-block;margin:4px 6px 0 0;padding:4px 10px;background:#1a1d27;border:1px solid #2a2e3b;border-radius:999px;color:#cfd3da;font-size:12px}
+  .kpi{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+  .kpi .card{flex:1 1 180px;background:#141821;border:1px solid #232634;border-radius:14px;padding:14px}
+  .kpi .n{font-size:24px;font-weight:700;color:var(--cta)}
+  .muted{color:var(--muted)}
+  .journey{width:100%;border-collapse:collapse;overflow:auto}
+  .journey th,.journey td{border:1px solid #2a2e3b;padding:10px 12px;vertical-align:top}
+  .journey th{background:#161923;text-align:left}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#141821;border:1px solid #232634;border-radius:12px;padding:12px;white-space:pre-wrap}
+  .screens{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .screen{background:#0f1219;border:1px dashed #2b3142;border-radius:20px;aspect-ratio:9/19;display:flex;align-items:center;justify-content:center;color:#7c8aa8;font-size:12px}
+  footer{margin-top:26px;color:#8e98a9;text-align:center}
+  @media (min-width:720px){
+    .grid-2{grid-template-columns:1fr 1fr}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+  }
+</style>
+</head
+<body>
+  <div class="container">
+    <header class="hero">
+      <span class="badge">Case Study</span>
+      <h1>循環網GO｜Circular Net GO</h1>
+      <p class="sub">A Sustainable Packaging Return System integrating <strong>ARM Recycling</strong> &amp; <strong>Reverse Logistics</strong></p>
+      <p class="muted">By <strong>Julia Yao (姚玨安)</strong> · MS in Integrated Design, Business &amp; Technology · USC IYA</p>
+      <nav class="toc">
+        <a href="#inspiration">Inspiration</a>
+        <a href="#problem">Problem</a>
+        <a href="#opportunity">Opportunity</a>
+        <a href="#workflow">Current Workflow</a>
+        <a href="#journey">User Journey Map</a>
+        <a href="#persona">Persona</a>
+        <a href="#ia">Information Architecture</a>
+        <a href="#prototype">Hi‑Fi Prototype</a>
+        <a href="#impact">Expected Impact</a>
+      </nav>
+    </header>
+
+    <section id="inspiration">
+      <h2>Inspiration</h2>
+      <p>台灣超過 6 成民眾使用網購，每年生出超過 2 億件包裝材。政府雖提出減量指引，但回收率仍偏低。現有循環包裝如 PackAge+ 在雙北回收率僅約 20–25%。受「獎懲超級反應傾向（Reward &amp; Punishment Superresponse）」啟發，本案嘗試用<strong>即時獎勵 + 便捷回收</strong>雙軸策略，提升大學生族群的參與與回收量。</p>
+      <div class="kpi">
+        <div class="card"><div class="n">60%+</div><div class="muted">台灣民眾使用網購</div></div>
+        <div class="card"><div class="n">200M+</div><div class="muted">年包裝件數</div></div>
+        <div class="card"><div class="n">~25%</div><div class="muted">現行回收率（雙北）</div></div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <h2>Problem Statement</h2>
+      <ul>
+        <li><strong>據點集中北部：</strong>南部/校園可近性不足。</li>
+        <li><strong>誘因不足：</strong>折價券延遲、金額低，對學生吸引力弱。</li>
+        <li><strong>逆物流未整合：</strong>流程斷裂、成本高、缺少即時回饋。</li>
+      </ul>
+      <p class="muted">結果：即使有環保意識，使用者仍因不便與低誘因而不主動歸還循環包裝。</p>
+    </section>
+
+    <section id="opportunity">
+      <h2>Opportunity Statement（What if…）</h2>
+      <ul>
+        <li>What if 回收循環包裝能像超商投瓶機一樣簡單？</li>
+        <li>What if 每次回收都<strong>立即</strong>折抵到悠遊卡/錢包？</li>
+        <li>What if 我們不另闢通路，而是整合既有<strong>物流 &amp; 超商</strong>網絡？</li>
+      </ul>
+      <p>→ 以<strong>ARM 機 + 逆物流</strong>打造全台可擴散、對學生友善的循環回收系統。</p>
+    </section>
+
+    <section id="workflow">
+      <h2>Current Workflow</h2>
+      <ol>
+        <li>在電商（如 PChome）選擇循環包裝。</li>
+        <li>開 App 查附近回收箱（多在雙北）。</li>
+        <li>親至少數投遞點回收，等待折價券回饋。</li>
+      </ol>
+      <p><strong>痛點：</strong>查詢繁瑣、據點稀少、回饋延遲 → 回收率低。</p>
+    </section>
+
+    <section id="journey">
+      <h2>User Journey Map（大學生）</h2>
+      <div style="overflow:auto">
+        <table class="journey">
+          <thead>
+            <tr><th>Stage</th><th>Action</th><th>Feeling</th><th>Pain Point</th><th>Opportunity</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Purchase</td>
+              <td>結帳時勾選循環包裝</td>
+              <td>有環保成就但猶豫</td>
+              <td>缺少即時誘因</td>
+              <td>結帳畫面顯示「本次回收可折抵 $10」</td>
+            </tr>
+            <tr>
+              <td>Receive</td>
+              <td>拆封、保留包裝袋</td>
+              <td>方便但佔空間</td>
+              <td>不知去哪回收</td>
+              <td>包裝上放 QR 教學、就近據點提示</td>
+            </tr>
+            <tr>
+              <td>Return</td>
+              <td>開 App 找據點</td>
+              <td>覺得遠 / 麻煩</td>
+              <td>據點少、資訊分散</td>
+              <td>整合 ARM、超商、宅配員與警衛</td>
+            </tr>
+            <tr>
+              <td>Complete</td>
+              <td>掃描歸還</td>
+              <td>短暫滿足</td>
+              <td>回饋延遲、金額低</td>
+              <td>即時入帳（悠遊卡/錢包）＋徽章加乘</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="persona">
+      <h2>Persona — Amber Chen（誘因驅動型大學生）</h2>
+      <div class="grid grid-2">
+        <div>
+          <p><strong>Age：</strong>21　<strong>Major：</strong>資訊管理　<strong>School：</strong>國立高雄大學</p>
+          <p><strong>Background：</strong>每週固定網購。知道環保重要，但若沒有實質回饋，不會特別花時間回收。</p>
+          <p><strong>Goals：</strong></p>
+          <ul>
+            <li>省錢、累積折抵金</li>
+            <li>快速回收、就近完成</li>
+            <li>透過任務/徽章獲得認可</li>
+          </ul>
+          <p><strong>Frustrations：</strong></p>
+          <ul>
+            <li>據點少、距離遠</li>
+            <li>回饋小且延遲</li>
+            <li>不確定回收是否被再利用</li>
+          </ul>
+          <p class="mono">“如果能在宿舍附近掃袋即退 $10，我一定會回收。”</p>
+        </div>
+        <div>
+          <span class="tag">網購重度用戶</span>
+          <span class="tag">對價值敏感</span>
+          <span class="tag">任務型動機</span>
+          <span class="tag">時間效率</span>
+          <p class="muted" style="margin-top:10px;">※ 可替換為你的人物照或插畫卡片。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ia">
+      <h2>Information Architecture</h2>
+<pre class="mono">1. 首頁 Home
+   ├─ 專案簡介 / 教學短片 / 即時回收成效
+2. 回收據點 Find Station
+   ├─ 校園 ARM 地圖 / 超商據點 / 宅配回收說明
+3. 我的帳戶 My Account
+   ├─ 歸還紀錄 / 折抵錢包 / 徽章任務 / 設定
+4. 教育與社群 Learn &amp; Share
+   ├─ 永續知識 / 用戶故事 / 校園挑戰
+5. 客服與回饋 Support
+   ├─ FAQ / 聯絡我們 / 合作夥伴</pre>
+    </section>
+
+    <section id="prototype">
+      <h2>High‑Fidelity Prototype（Figma）</h2>
+      <p>行動端介面串接 ARM 回收與學生誘因：</p>
+      <ul>
+        <li><strong>Home：</strong>總回收量與錢包餘額 → CTA「馬上回收」</li>
+        <li><strong>Scan QR：</strong>掃包裝袋 QR → 立即入帳 + 動畫回饋</li>
+        <li><strong>Map：</strong>校園 ARM/超商據點、距離、開放時段</li>
+        <li><strong>Rewards：</strong>回收次數、徽章、碳減量進度</li>
+        <li><strong>Community：</strong>心得牆與校園挑戰活動</li>
+      </ul>
+      <div class="screens" aria-label="Prototype Screens Placeholders">
+        <div class="screen">Home</div>
+        <div class="screen">Scan</div>
+        <div class="screen">Map</div>
+        <div class="screen">Rewards</div>
+        <div class="screen">Community</div>
+      </div>
+      <p class="muted">可在 Figma 以 5 個 Frame（390×844）建立，利用 Smart Animate 與 Overlay 模擬掃描與成功彈窗。</p>
+    </section>
+
+    <section id="impact">
+      <h2>Expected Impact</h2>
+      <ul>
+        <li><strong>Increased Recycling Rate：</strong>預期在學生族群可將回收率由 ~25% 提升至 <strong>60%+</strong>。</li>
+        <li><strong>Behavioral Change：</strong>即時入帳與徽章系統，讓回收成為日常習慣。</li>
+        <li><strong>Sustainability Education：</strong>儀表板與社群故事提升永續認知，擴大校園影響力。</li>
+        <li><strong>Scalability：</strong>由校園試點擴至全台，成為電商綠色物流範式。</li>
+        <li><strong>Long‑term Vision：</strong>循環包裝常態化，減少一次性垃圾，支持台灣綠色經濟。</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© 2025 Julia Yao · Circular Net GO</p>
+    </footer>
+  </div>
+</body>
+</html>
